@@ -1,0 +1,71 @@
+name: Music Magic Server (non-free) Unofficial installer
+version: 1.8.6
+slug: mmserver
+description: Installer for Music Magic Server for MusicIP into a HA addon
+url: https://github.com/pssc/ha-addon-mip/
+webui: http://[HOST]:[PORT:3220]/
+arch:
+  - amd64
+  - i386
+startup: application
+init: false
+boot: auto
+stdin: false
+ports:
+  10002/tcp: 10002
+ports_description:
+  10002/tcp: Web Access
+timeout: 180
+map:
+  - config:rw
+  - share:rw
+  - backup:rw
+  - media:rw
+tmpfs: true
+hassio_api: true
+udev: true
+full_access: true
+apparmor: false
+homeassistant_api: false
+privileged:
+  - SYS_ADMIN
+  - DAC_READ_SEARCH
+host_network: true
+backup_exclude:
+  - /data/music
+  - /data/mount
+  - /data/mnt
+ingress: true
+ingress_port: 0
+panel_icon: mdi:file-music
+panel_title: MMServer
+stage: experimental
+options:
+  links: []
+  mounts: []
+  dirs: []
+  init_commands: []
+  packages: []
+schema:
+  ssl: bool?
+  certfile: str?
+  keyfile: str?
+  mount: str?
+  options: str?
+  logdir: str?
+  logfile: str?
+  links:
+    - link: str
+      dest: str
+  mounts:
+    - str?
+  dirs:
+    - str?
+  init_commands:
+    - str?
+  packages:
+    - str?
+  eula: bool?
+  validate: bool?
+  refresh: bool?
+  add: str?

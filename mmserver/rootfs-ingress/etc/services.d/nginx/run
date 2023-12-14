@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Runs the Nginx daemon
+# ==============================================================================
+
+# Wait for lms to become available
+bashio::log.info "Waiting for XXXX before starting NGinx..."
+bashio::net.wait_for 10002 localhost 900
+
+bashio::log.info "Starting Nginx..."
+
+exec nginx

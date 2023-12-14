@@ -1,0 +1,37 @@
+#!/usr/bin/with-contenv bash
+set -e
+set -u
+set -o pipefail
+
+readonly NAME=${HAA_NAME}
+
+if [ -r "/opt/${NAME}-support/lib/lib${NAME}.sh" ];then
+	. "/opt/${NAME}-support/lib/lib${NAME}.sh"
+fi
+#warn
+
+function stop() {
+  echo Signal
+  kill $PID
+}
+
+function main() {
+  echo "Starting ${NAME}"
+  ${DAEMON} ${DAEMON_OPTIONS} ${DAEMON_EXTRA_OPTIONS} &
+  PID=$!
+  echo -n "$PID" > /tmp/.${NAME}_ready
+  trap "stop" SIGTERM SIGINT
+  trap "" SIGHUP
+
+  echo "Wait ${PID}"
+  wait "$PID" || true
+  if [ "${DEBUG:-false}" = "true" ];then
+    echo "Sleep"
+    sleep 7d
+  fi
+  echo "Exit"
+  exit $?
+}
+
+main
+# vim: ft=sh
