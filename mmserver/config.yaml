@@ -1,5 +1,5 @@
 name: Music Magic Server (non-free) Unofficial installer
-version: 1.8.7
+version: 1.8.8
 slug: mmserver
 description: Installer for Music Magic Server for MusicIP into a HA addon
 url: https://github.com/pssc/ha-addon-mip/
@@ -69,3 +69,4 @@ schema:
   validate: bool?
   refresh: bool?
   add: str?
+image: "ghcr.io/pssc/ha-addon-mmserver-{arch}"
