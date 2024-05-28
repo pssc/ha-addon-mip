@@ -51,7 +51,7 @@ RUN apt-get update && \
 		sshfs \
 		tzdata 
 
-# App dep...
+# App dep....
 RUN if [[ "${BUILD_ARCH}" = "amd64" ]];then apt-get -y install libc6-i386 ;fi
 
 
