@@ -3,14 +3,10 @@ version: 1.8.8
 slug: mmserver
 description: Installer for Music Magic Server for MusicIP into a HA addon
 url: https://github.com/pssc/ha-addon-mip/
-webui: http://[HOST]:[PORT:3220]/
 arch:
   - amd64
   - i386
-startup: application
 init: false
-boot: auto
-stdin: false
 ports:
   10002/tcp: 10002
 ports_description:
@@ -22,11 +18,9 @@ map:
   - backup:rw
   - media:rw
 tmpfs: true
-hassio_api: true
 udev: true
 full_access: true
 apparmor: false
-homeassistant_api: false
 privileged:
   - SYS_ADMIN
   - DAC_READ_SEARCH
