@@ -109,7 +109,7 @@ LABEL \
     maintainer="Phillip Camp <phillip.camp+ha<removeme>@gmail.com>" \
     org.label-schema.description="MusicIP MusicMagicMixer Server Installer" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="bliss" \
+    org.label-schema.name="mmserver" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.usage="https://github.com/pssc/ha-addon-mip/tree/master/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
