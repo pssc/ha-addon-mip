@@ -1,6 +1,10 @@
+## [1.8.9] 2024-05-28
+# Changes
+ - use addon_config
+
 ## [1.8.8] 2024-05-28
 # Chanages
  - change to config.yaml
- - bump base yo 7.3.3
- - usgae prebuilt image to install mmserver into
+ - bump base to 7.3.3
+ - use prebuilt image to install mmserver into
 
