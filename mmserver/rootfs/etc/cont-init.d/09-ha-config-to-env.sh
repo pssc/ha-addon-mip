@@ -14,8 +14,7 @@ function ha_to_env {
   fi
 }
 
-PF="LMS_"
+PF="MM_"
 
-ha_to_env EULA
-#ha_to_env NX ${PF}
+#ha_to_env EULA
 exit
