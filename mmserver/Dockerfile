@@ -3,7 +3,7 @@ FROM ${BUILD_FROM}
 ARG target_uid=1000
 ARG target_gid=1000
 ARG url="https://www.spicefly.com/files/mp/MusicMixer_x86_1.8.tgz"
-ARG debug=true
+ARG debug=false
 
 ARG BUILD_ARCH
 
@@ -88,11 +88,6 @@ RUN if [ -z "${debug}" -o "${debug}" = "false" ];then apt-get -y remove \
 	apt-get clean -y && \
 	apt-get -y autoremove && \
         rm -fr /sources ;fi
-
-VOLUME /data
-VOLUME /share
-VOLUME /backup
-VOLUME /config
 
 # Build arguments
 ARG BUILD_DATE

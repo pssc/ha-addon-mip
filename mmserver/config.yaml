@@ -1,5 +1,5 @@
 name: Music Magic Server (non-free) Unofficial installer
-version: "1.8.8"
+version: "1.8.9"
 slug: mmserver
 description: Installer for Music Magic Server for MusicIP into a HA addon
 url: "https://github.com/pssc/ha-addon-mip/mmerver"
@@ -13,10 +13,11 @@ ports_description:
   10002/tcp: Web Access
 timeout: 180
 map:
-  - config:rw
-  - share:rw
-  - backup:rw
-  - media:rw
+  - type: addon_config
+    read_only: False
+    path: /config/addons_config/mmserver
+  - share
+  - media
 tmpfs: true
 udev: true
 full_access: true
