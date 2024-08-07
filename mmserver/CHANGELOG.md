@@ -1,6 +1,7 @@
-## [1.8.9] 2024-05-28
+## [1.8.9] 2024-08-27
 # Changes
  - use addon_config
+ - Streamling setup of addon
 
 ## [1.8.8] 2024-05-28
 # Chanages
