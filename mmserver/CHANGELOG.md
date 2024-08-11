@@ -1,4 +1,8 @@
-## [1.8.9] 2024-08-27
+## [1.8.10] 2024-08-11
+# Add
+ - mosquitto-clients
+
+## [1.8.9] 2024-07-27
 # Changes
  - use addon_config
  - Streamling setup of addon

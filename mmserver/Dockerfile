@@ -74,6 +74,7 @@ RUN apt-get install -y --no-install-recommends \
         libnginx-mod-http-lua \
         luarocks \
         nginx \
+        mosquitto-clients \
     && luarocks install lua-resty-http 0.15-0 \
     && rm -r /etc/nginx
 COPY rootfs-ingress/ /
