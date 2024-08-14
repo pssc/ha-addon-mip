@@ -23,6 +23,7 @@ function main() {
   trap "stop" SIGTERM SIGINT
   trap "" SIGHUP
 
+  tail -F /config/addons_config/mmserver/MusicMagic/log.txt &
   echo "Wait ${PID}"
   wait "$PID" || true
   if [ "${DEBUG:-false}" = "true" ];then
