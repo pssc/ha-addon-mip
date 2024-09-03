@@ -1,52 +1,69 @@
-<HTML>
-<HEAD>
-<TITLE>MusicMagic Server Home Asssistant Addon</TITLE>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MusicMagic Server Home Asssistant Addon</title>
 <meta name="color-scheme" content="dark light">
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MuiscIP Control Panel">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
 body {
   background-color: white;
   color: black;
+  margin: 10px;
+  font-size: 24px;
 }
-
 @media (prefers-color-scheme: dark) {
-body {
-  background-color: black;
-  color: lightgray;
+  body {
+    background-color: black;
+    color: lightgray;
+  }
 }
-}
+.style2 {}
+.style4 {}
+-->
 </style>
-</HEAD>
-<BODY>
-<h1>MusicMagic Server</h1>
+</head>
+<body>
+<h1 class="style2">MusicMagic Server Home Asssistant Addon</h1>
 
-<h3>Current Cache</h3>
+<h2 class="style2">MusicIP Headless Server</h1>
+
+<h3 class="style2">Current Cache</h3>
 
 <table width=%100>
     <TR>
-    <TD width=5%>&nbsp;</TD>
-    <TD width=35%>
-<table>
-    <tr><td>Total songs</td><td align=right><?total?></td></tr>
-    <tr><td>Mixable songs</td><td align=right><?mixable?></td></tr>
-    <tr><td>Songs to validate</td><td align=right><?todo?></td></tr>
-    <tr><td colspan=2><?active?>&nbsp;</td></tr>
-    <!-- NYI: Usage stats?  Log file? -->
-</table>
-</TD><TD width=60%>
+    <TD width=5% class="style2">&nbsp;</TD>
+    <TD width=35% class="style2">
+    <table>
+       <tr><td>Total songs</td><td align=right><?total?></td></tr>
+       <tr><td>Mixable songs</td><td align=right><?mixable?></td></tr>
+       <tr><td>Songs to validate</td><td align=right><?todo?></td></tr>
+       <tr><td colspan=2><?active?>&nbsp;</td></tr>
+       <!-- NYI: Usage stats?  Log file? -->
+    </table>
+    </TD>
+    <TD width=60% class="style2">
+    <form action="/server/add">
+       <label>
+         <i>Enter root folder of music</i>
+         <input type=text name=root> 
+       </label>
+       <input type=submit value="Add Music">
+    </form>
 
-<form action="/server/add">
-    <input type=submit value="Add Music">
-    <input type=text name=root> <i>enter root folder of music</i>
-</form>
+    <form action="/server/search">
+        <label>
+          <i>Enter text to match songs</i>
+          <input type=text name=query> 
+        </label>
+        <input type=submit value="Search Songs">
+    </form>
 
-<form action="/server/search">
-    <input type=submit value="Search Songs">
-    <input type=text name=query> <i>enter text to match songs</i>
-</form>
-
-<form action="/server/refresh">
-    <input type=submit value="Refresh Songs">
-</form>
+    <form action="/server/refresh">
+       <input type=submit value="Refresh Songs">
+    </form>
 
 <!-- Only show this if the cache is obsolete -->
 <?reloadstart?>
@@ -56,55 +73,69 @@ body {
 <?reloadstop?>
 <!-- NYI: Overwrite cache option as well? -->
 
-</TD></tR>
-</TABLE>
+    </TD></TR>
+</table>
 
 <hr>
 
-<h3>Validation</h3>
+<h3 class="style2">Validation</h3>
 
+<span class="style2">
 <!-- Processor load options on Windows -->
 <!-- NYI: Only for win32 -->
 <?cpustart?>
-<form action="/server/updateProcessorUse">
-    Processor use 
-<select name="use" onchange="submit()"><?cpu?></select>
+</span>
+<form action="/server/updateProcessorUse" class="style2">
+    Processor use
+<select name="use" onChange="submit()"><?cpu?></select>
  <i>(affects time to complete validation)</i>
 </form>
+<span class="style2">
 <?cpustop?>
-
-<form action="/server/validate">
+</span>
+<form action="/server/validate" class="style2">
     <input type=submit name="action" value="Start Validation">
     <input type=submit name="action" value="Stop Validation">
 </form>
 
 <hr>
 
-<h3>Mix Settings</h3>
+<h3 class="style2">Mix Settings</h3>
 
-<form action="/server/updateMixSettings">
+<form action="/server/updateMixSettings" class="style2">
 <table>
-  <tr><td>Artist style</td><td>
-    <select name=style><?style?></select></td></tr>
-  <tr><td>Variety</td><td>
-    <select name=variety><?variety?></select></td></tr>
-  <tr><td>Mix size</td><td>
-    <input name="size" value="<?mixsize?>" type=text size=20> 
-    <select name="type"><?mixtype?></select></td></tr>
-  <tr><td>No duplicates within</td><td>
-    <input name="dupsize" value="<?dupsize?>" type=text size=20> 
-    <select name="duptype"><?duptype?></select></td></tr>
-  <tr><td colspan="2">
-    <input name="seed" <?seed?> type=checkbox> Always include seed songs in mix</td></tr>
+  <tr><td><label for="style">Artist style</label></td>
+  <td><select id="style" name=style><?style?></select></td></tr>
+  <tr><td><label for="variety">Variety </label></td>
+  <td><select id="variety" name=variety><?variety?></select></td></tr>
+  <tr><td><label for="msize" >Mix size</label></td>
+    <td>
+    <input id="msize" name="size" value="<?mixsize?>" type=text size=10> 
+    <label>Size Type
+    <select name="type"><?mixtype?></select>
+    </label>
+    </td></tr>
+  <tr><td><label for="nodup">No duplicates within</label></td>
+    <td>
+    <input id="nodup" name="dupsize" value="<?dupsize?>" type=text size=10> 
+    <label>Dup Type
+    <select name="duptype"><?duptype?></select>
+    </label>
+    </td></tr>
+  <tr><td colspan="2"><label>Always include seed songs in mix
+    <input name="seed" <?seed?> type=checkbox>
+    </label>
+  </td></tr>
   <tr><td colspan="2"><input type=submit value="Update Settings"></td></tr>
 </table>
 </form>
 
 <hr>
-<!--
-<h3>Server Settings</h3>
 
-<form action="/server/updateServerSettings">
+<!--
+<h3 class="style2">Server Settings</h3>
+
+<form action="/server/updateServerSettings" class="style2">
 <table>
 
 <tr><td colspan=4><input name=proxy <?proxy?> type=checkbox>Enable proxy</td></tr>
@@ -117,10 +148,95 @@ body {
 <input type=submit value="Update Settings">
 </form>
 
-<form action="/server/test">
+<form action="/server/test" class="style2">
 <input type=submit value="Test Connection">
 </form>
---!>
-MusicMagic Server Home Asssistant Addon
-</BODY>
-</HTML>
+<hr>
+-->
+<h3 class="style2">Test Mix</h3>
+<form action="/api/mix?song=&size=12&sizeType=tracks&content=text" class="style2">
+<input type=submit value="Test Mix Creation">
+Test MusicIP is working correctly by creating a Generic Mix
+</form>
+
+<hr>
+
+<h3 class="style2">Show Information</h3>
+<table>
+  <td class="style2"><form action="/api/duplicates">
+    <input name="submit" type=submit value="Show Duplicates">
+  </form></td>
+  <td class="style2"><form action="/api/filters">
+    <input name="submit" type=submit value="Show Filters">
+  </form></td>
+  <td class="style2"><form action="/api/playlists">
+    <input name="submit" type=submit value="Show Playlists">
+  </form></td>
+</table>
+<table width="221">
+<TR>
+<TD class="style2">
+<form action="/api/albums">
+  <div align="center">
+    <input type=submit value="Show Albums">
+  </div>
+</form></TD>
+<TD class="style2">
+<form action="/api/artists">
+  <div align="center">
+    <input type=submit value="Show Artists">
+  </div>
+</form></TD>
+</TR>
+<TR>
+<TD class="style2">
+<form action="/api/genres">
+  <div align="center">
+    <input type=submit value="Show Genres">
+  </div>
+</form></TD>
+<TD class="style2">
+<form action="/api/songs">
+  <div align="center">
+    <input type=submit value="Show Songs">
+  </div>
+</form></TD>
+</TR>
+</table>
+<form action="/api/getRating" class="style4">
+    <label>
+    <i>Use Show Songs, Then Cut and Paste into Text Field</i>
+    <input name=song type=text size="50">
+    </label>
+    <input type=submit value="Show Rating of Song">
+</form>
+<form action="/api/getPlayCount" class="style4">
+    <label>
+    <i>Use Show Songs, Then Cut and Paste into Text Field</i>
+    <input name=song type=text size="50">
+    </label>
+    <input type=submit value="Show Play Count of Song">
+</form>
+<form action="/api/getLastPlayed" class="style4">
+    <label>
+    <i>Use Show Songs, Then Cut and Paste into Text Field</i>
+    <input name=song type=text size="50">
+    </label>
+    <input type=submit value="Show when Song Last Played">
+</form>
+
+<hr>
+
+<h3 class="style2">Links</h3>
+<table class="style4">
+  <tr>
+    <td><span class="style2"><a href="http://forums.slimdevices.com/">Squeezebox Forums</a></span></td>
+    <td>Support and Information on Squeezebox Products</td>
+  </tr>
+</table>
+
+<footer>
+   <p>MusicMagic Server Home Asssistant Addon Version 1.2 - 2024/09/01</p>
+</footer>
+</body>
+</html>
