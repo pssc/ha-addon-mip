@@ -1,3 +1,6 @@
+## [1.8.11] 2024-09-03
+ - Update web interface
+
 ## [1.8.10] 2024-08-11
 # Add
  - mosquitto-clients
