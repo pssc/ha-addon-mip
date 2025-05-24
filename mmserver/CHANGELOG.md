@@ -1,5 +1,6 @@
 ## [1.8.12] 2024-09-03
  - bump base to 7.8.3
+ - Fix paths to /config to use simple addon config dir
 
 ## [1.8.11] 2024-09-03
  - Update web interface
