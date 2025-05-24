@@ -2,7 +2,7 @@
 # ==============================================================================
 
 #FIXME
-CFG="/config/addons_config/mmserver"
+CFG="/config"
 
 # Install if required
 if [ ! -r $DAEMON_STARTUP -a -r $DAEMON_SOFTWARE_INSTALLER ];then

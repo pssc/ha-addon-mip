@@ -13,9 +13,7 @@ ports_description:
   10002/tcp: Web Access
 timeout: 180
 map:
-  - type: addon_config
-    read_only: False
-    path: /config/addons_config/mmserver
+  - addon_config:rw
   - share
   - media
 tmpfs: true

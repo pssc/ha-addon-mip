@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
 
-CFG="/config/addons_config/mmserver"
+CFG="/config"
 
 # Download if required
 if [ ! -r $DAEMON_SOFTWARE_INSTALLER -a ! -r $DAEMON_STARTUP ];then

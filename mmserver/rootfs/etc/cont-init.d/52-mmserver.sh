@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
 
-CFG="/config/addons_config/mmserver"
+CFG="/addon_config/mmserver"
 cp -uv /opt/mip/mmserver/share/MusicMagicMixer/server/index.html $DAEMON_INSTALL_DIR/MusicIP/MusicMagicMixer/server/
 
 cd ${CFG}
