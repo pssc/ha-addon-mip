@@ -3,7 +3,7 @@ FROM ${BUILD_FROM}
 ARG target_uid=1000
 ARG target_gid=1000
 ARG url="https://www.spicefly.com/files/mp/MusicMixer_x86_1.8.tgz"
-ARG debug=false
+ARG debug=true
 
 ARG BUILD_ARCH
 
@@ -23,7 +23,7 @@ ENV HA_USER_UID "$target_uid"
 ENV HA_USER_GID "$target_gid"
 ENV DAEMON_OPTIONS=" "
 ENV DAEMON_EXTRA_OPTIONS=" "
-ENV DAEMON_APP_DIR="/config/"
+ENV DAEMON_APP_DIR="/addons_config/mmserver"
 ENV DAEMON_INSTALL_DIR="/data/mip/install"
 ENV DAEMON_SOFTWARE_URL=$url
 ENV DAEMON_SOFTWARE_DOWNLOAD_DIR="/data/mip/download"
