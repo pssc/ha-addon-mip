@@ -1,5 +1,5 @@
 name: Music Magic Server (non-free) Unofficial installer
-version: "1.8.12"
+version: "1.8.13"
 slug: mmserver
 description: Installer for Music Magic Server for MusicIP into a HA addon
 url: "https://github.com/pssc/ha-addon-mip/mmerver"
@@ -20,6 +20,7 @@ tmpfs: true
 udev: true
 full_access: true
 apparmor: false
+hassio_api: true
 privileged:
   - SYS_ADMIN
   - DAC_READ_SEARCH
