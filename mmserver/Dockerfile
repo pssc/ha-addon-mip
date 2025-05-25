@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND "noninteractive"
 # TZ config at runtime
 ENV DISABLE_HA_AUTHENTICATION true
 
-#FIXME non-root user... with homedir /config/addons_config/mmserver
+#FIXME non-root user... with homedir 
 #db?
 #ini file?
 
@@ -23,7 +23,7 @@ ENV HA_USER_UID "$target_uid"
 ENV HA_USER_GID "$target_gid"
 ENV DAEMON_OPTIONS=" "
 ENV DAEMON_EXTRA_OPTIONS=" "
-ENV DAEMON_APP_DIR="/addons_config/mmserver"
+ENV DAEMON_APP_DIR="/config"
 ENV DAEMON_INSTALL_DIR="/data/mip/install"
 ENV DAEMON_SOFTWARE_URL=$url
 ENV DAEMON_SOFTWARE_DOWNLOAD_DIR="/data/mip/download"
