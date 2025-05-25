@@ -3,7 +3,7 @@ FROM ${BUILD_FROM}
 ARG target_uid=1000
 ARG target_gid=1000
 ARG url="https://www.spicefly.com/files/mp/MusicMixer_x86_1.8.tgz"
-ARG debug=true
+ARG debug=false
 
 ARG BUILD_ARCH
 
