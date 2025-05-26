@@ -1,4 +1,4 @@
-## [1.8.12] 2024-09-03
+## [1.8.12] 2025-09-24
  - bump base to 7.8.3
  - Fix paths to /config to use simple addon config dir - manual update of cache path in ini file will need to be updated.
  - Fix hassio API access for DNS and ingress
